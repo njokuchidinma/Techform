@@ -1,0 +1,154 @@
+.header {	
+	padding: 16px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: white;
+	z-index: var(--header-z-index);
+}
+
+.header__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__logo {
+	width: 60px;
+	height: 60px;
+}
+
+.header__navigation {
+	display: flex;
+
+}
+
+.header__navigation-item {
+  color: var(--dark);
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  line-height: 19px;
+  text-decoration: none;
+}
+
+.header__navigation-item--active {
+	color: var(--primary);
+}
+
+.header__navigation-item:not(:last-child) {
+	margin-right: 40px;
+}
+
+.header-fixed-adjust {
+	padding-top: 92px;
+}
+
+@media (max-width: 800px) {
+	.header__container.container{
+		padding: 0 5%;
+	}
+	.header__navigation-item:not(:last-child){
+		margin-right: 30px;
+	}
+}
+
+.subnav-open-btn{
+	background-color: transparent;
+	border: none;
+	position: relative;
+	cursor: pointer;
+	width: 25px;
+	height: 17px;
+	outline: none;
+	display: none;
+}
+
+.subnav-open-btn .bar{
+	height: 3px;
+	display: inline-block;
+	width: 25px;
+	background-color: black;
+	position: absolute;
+	left: 0;
+	transition: 300ms;
+}
+
+.subnav-open-btn .bar:first-of-type{
+	transform: translateY(-7px);
+}
+
+.subnav-open-btn .bar:last-of-type{
+	transform: translateY(7px);
+}
+
+
+.subnav-open-btn.active .bar:nth-of-type(2){
+	opacity: 0;
+}
+
+.subnav-open-btn.active .bar:first-of-type{
+	transform: translateY(0px) rotate(45deg);
+	opacity: 1;
+}
+
+.subnav-open-btn.active .bar:last-of-type{
+	transform: translateY(0px) rotate(-45deg);
+	opacity: 1;
+}
+
+.subnav{
+	position: fixed;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: calc(100% - 86px);
+	background-color: white;
+	z-index: calc(var(--header-z-index) + 1);
+	padding-top: 50px;
+	transition: 700ms;
+	transform: translateY(-100%);
+}
+
+.subnav--active{
+	transform: translateY(86px);
+}
+
+.subnav__navigation-item{
+	font-family: "Proxima Nova",sans-serif;
+	color: #9E13C0;
+	margin: 30px 0;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.feature{
+	background-color: #FFB437;
+	padding: 15px 10%;
+	font-family: "Proxima Nova",sans-serif;
+	font-size: 16px;
+	color: #000000;
+	text-align: center;
+	line-height: 24px;
+	margin-top: 10px;
+}
+
+.feature__link{
+	color: #000000;
+}
+
+.feature__icon{
+	height: 10px;
+	fill: black;
+}
+
+@media (max-width: 600px) {
+	.subnav-open-btn{
+		display: block;
+	}
+	.header__navigation{
+		display: none	;
+	}
+}

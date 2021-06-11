@@ -1,0 +1,88 @@
+for forms.py
+
+
+from django import forms
+
+
+
+class TechForm(forms.Form):
+    class Meta:
+        user_name = forms.CharField()
+        email = forms.EmailField(label='E-mail')
+        password = forms.PasswordInput()
+        location = forms.CharField()
+        address = forms.FloatField(required=False)
+        body = forms.CharField(widget=forms.Textarea)
+
+
+
+another forms,py
+from django import forms
+
+class TechForm(forms.Form):
+    class Meta:
+      name = forms.CharField(max_Length=100)
+      email = forms.CharField(max_length=100,null=True)
+      address = forms.CharField(max_length=500,null=True)
+
+#Student Model
+class Student(forms.Form):
+    full_name = forms.CharField(max_length=200)
+    course = forms.CharField(max_Length=300)
+    roll_no = forms.CharField(max_length=200)
+    address = forms.CharField(max_length=300)
+
+    from form.html
+
+    {{my_field.label|linebreaks}}
+      {{form}}
+      {{my_field.label|linebreaks}}
+
+    <label for = "username">User Name</label><br>
+      <input type = "text" id="username" name= "username"><br>
+      <label for = "email">Email</label><br>
+      <input type = "text" id="email" name="email">
+      <label for = "password">Password</label>
+      <input type = "text" id="password" name="password">
+      <label for = "location" >Location</label>
+      <input type = "text" id="location" name="location">
+      <label for = "profession" >Profession</label>
+      <input type = "text" id="profession" name="profession">
+
+
+      for form.html the working one
+
+      <!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {background-color: #557A95;}
+h3   {color: #5D5C61;}
+p    {color: #A9A9A9;}
+body   {color: #000000;}
+    </style>
+    <title>TechForm</title>
+</head>
+<body>
+     <h3>Tech Form</h3>
+     <hr/>
+     {% for message in messages %}
+      <p>{{message}}</p>
+      {% endfor %}
+  <form action="{% url 'home:techform' %}" method="POST">
+      {% csrf_token %}
+      <label for = "username">Username</label><br>
+      <input type = "text" id="username" name= "username" ><br>
+      <label for = "email">Email</label><br>
+      <input type = "email" id="email" name="email"><br>
+      <label for = "pwd">Password</label><br>
+      <input type = "password" id="pwd" name="password"><br>
+      <label for = "location" >Location</label><br>
+      <input type = "text" id="location" name="location"><br>
+      <label for = "profession" >Profession</label><br>
+      <input type = "text" id="profession" name="profession"><br>
+      <button type="submit">SUBMIT</button>
+  </form>
+</body>
+</html>

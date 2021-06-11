@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Cyber | Cohort Cyber Women Techsters</title>
+    <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/pages/join.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- See https://scrollrevealjs.org/guide/user-experience.html for why this is here -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="/"><img class="header__logo" src="{% static 'home/images/logo.png' %}" /></a>
+            <nav class="header__navigation">
+                <a href="#" class="header__navigation-item">Home To E-Books</a><!--
+                <a href="programs.html" class="header__navigation-item">Programs</a>
+                <a href="media.html" class="header__navigation-item">Media</a>
+                <a href="join.html" class="header__navigation-item header__navigation-item--active">Join Us</a>
+                <a href="contact.html" class="header__navigation-item">Contact Us</a> -->
+            </nav>
+            <button class="subnav-open-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+    <nav class="subnav"> 
+        <a href="#" class="subnav__navigation-item">COHORT CYBERFUN</a><!--
+        <a href="programs.html" class="subnav__navigation-item">Programs</a>
+        <a href="media.html" class="subnav__navigation-item">Media</a>
+        <a href="join.html" class="subnav__navigation-item subnav__navigation-item--active">Join Us</a>
+        <a href="contact.html" class="subnav__navigation-item">Contact Us</a> -->
+    </nav>
+    <main>
+        <div class="hero">
+            <img src="{% static 'home/images/join-us.jpg' %}" class="hero__image" alt="Join us top image">
+            <div class="hero__image-overlay"></div>
+            <div class="hero__text volunteer-is-active">
+                <h1 class="hero__header">
+                    JOIN US
+                </h1>
+                <p class="hero__subtext volunteer-subtext">
+                    Your time and skills are valuable to us
+                </p>
+                <p class="hero__subtext partner-subtext">
+                    Collaboration with technical and financial partners enable us achieve extended impact across our various initiatives.
+                </p>
+            </div>
+        </div>
+        <div class="toggle-bar">
+            <button class="toggle-bar__button toggle-bar__button--active" data-toggle="volunteer">
+                Download an e-book with us
+            </button> <!--
+            <button class="toggle-bar__button" data-toggle="partner">
+                Partner with us
+            </button> -->
+        </div>
+        <div class="form-container">
+            <div class="form-description volunteer-is-active">
+                <div class="volunteer-description">
+                    <h1 class="form-description__header">
+                        Get your E-book Suggestions
+                        <span class="form-description__header-border"></span>
+                    </h1>
+                    <p class="form-description__subtext">
+                        Our initiatives across TechCSDev are driven by full time, part time and volunteer team members. Skills required across range from project management to programs planning and organization to training, photography, research and content development as well as strategic communications.
+                    </p>
+                    <p class="form-description__subtext">
+                        Are you passionate about driving positive impact within your local community or across the continent? Grab a 'copy' of your <span class="bold">CHANGEMAKERS</span> e-book today!
+                    </p>
+                </div>
+                <div class="partner-description">
+                    <h1 class="form-description__header">
+                        Partner with us
+                        <span class="form-description__header-border"></span>
+                    </h1>
+                    <p class="form-description__subtext">
+                        We actively engage private organizations, governments, international development agencies, charitable foundations and individuals looking to support the kind of efforts we are engaged with across the continent to achieve impact and scale.
+                    </p>
+                    <p class="form-description__subtext">
+                        Partnering with the Tech Stars Cohort CS initiative offers you the opportunity to create impact locally across Africa by empowering girls and women. We are seeking partners interested in working with us to achieve successful execution of the Women Tech Stars initiative across Africa.
+                    </p>
+                </div>
+            </div>
+            {% for message in messages %}
+      <p>{{message}}</p>
+      {% endfor %}
+            <form action="{% url 'home:techform' %}" method="POST" class="form volunteer-is-active">
+                {% csrf_token %}
+                <input type="hidden" name="sheetname" value="volunteer" class="input-group__input">
+                <div class="input-group">
+                    <label for="name" class="input-group__label">Name</label>
+                    <input type="text" id="name" name="name" class="input-group__input" required />
+                </div>
+                <div class="input-group">
+                    <label for="email" class="input-group__label">Email</label>
+                    <input type="text" id="email" name="email" class="input-group__input" required />
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="number" class="input-group__label">Phone Number</label>
+                        <input type="text" id="number" name="number" class="input-group__input" required />
+                    </div>
+                    <div class="input-group volunteer">
+                        <label for="program" class="input-group__label">Program</label>
+                        <input type="text" id="program" name="program" class="input-group__input" required />
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="state" class="input-group__label">State</label>
+                        <input type="text" id="state" name="state" class="input-group__input" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="country" class="input-group__label">Country</label>
+                        <input type="text" id="country" name="country" class="input-group__input" required />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="message" class="input-group__label">Any Extra Request</label>
+                    <textarea name="message" id="message" class="input-group__input input-group__input--textarea"></textarea>
+                </div>
+                <button class="submit-form" id="submit" type="submit">
+                    <span>Volunteer Now!</span>
+                </button>
+            </form>
+        </div>
+        <div class="modal" id="success-modal">
+            <div class="modal__overlay">
+                <div class="modal__content">
+                    <div class="success-message">
+                        <div class="success-message__icon">
+                            <img src="{% static 'home/images/envelope.svg' %}" alt="">
+                        </div>
+                        <h2 class="success-message__title">Message sent!</h2>
+                        <p class="success-message__description">
+                            Your course e-book has been sent and you will get a response from our support team shortly.
+                        </p>
+                        <button class="button" id="close-success-modal">
+                            Got it!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <span>
+            &copy; 2021 Women Techies |P
+        </span><!--
+        <a href="#" target="_blank" rel="noreferrer noopener"> -->
+            &copy; An initiative of Tech4-Class
+            <!--
+            <img src="{% static 'home/images/initiative-white.png' %}" alt="An initiative of TechCyberClass" /> -->
+    </footer>
+    <script src="{% static 'home/js/forms.js' %}"></script>
+    <script src="{% static 'home/js/header.js' %}"></script>
+    <script src="{% static 'home/js/join.js' %}"></script>
+    <script src="{% static 'home/js/reveal.js' %}"></script>
+    <script type="text/javascript">
+        const options = Object.assign({}, baseRevealOptions, {
+            distance: '30px',
+            origin: 'bottom',
+            opacity: 0,
+        })
+        const heroNodes = [
+            document.querySelector('.hero__header'),
+            document.querySelector('.hero__subtext'),
+            document.querySelector('.form-description'),
+            document.querySelector('.form')
+        ]
+
+        ScrollReveal().reveal(heroNodes, options)
+    </script>
+</body>
+</html>

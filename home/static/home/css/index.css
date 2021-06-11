@@ -1,0 +1,18 @@
+@import "./variables.css";
+@import "./grid.css";
+@import "./fonts.css";
+@import "./utils.css";
+@import "./header.css";
+@import "./button.css";
+@import "./card.css";
+@import "./form.css";
+@import "./debug.css";
+@import "./footer.css";
+@import "./modal.css";
+@import "./reveal.css";
+
+body {
+	font-family: var(--font-family);
+	font-size: 16px;
+	color: var(--dark);
+}

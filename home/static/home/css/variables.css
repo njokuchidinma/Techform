@@ -1,0 +1,29 @@
+:root {
+	--dark: #333;
+	--black: #000;
+	--purple: hsl(288, 82%, 41%);
+	--darkened-purple: hsl(288, 82%, 30%);
+	--pale-pink: #FAE5FF;
+	--very-pale-pink: #FBEBFF;
+	--transparent-pink: rgba(255,240,255,0.38);
+	--white: #fff;
+	--light-grey: #828282;
+	--grey: #BDBDBD;
+	--primary: var(--purple);
+
+	--input-background-color: #f2f2f2;
+	--input-text-color: #4f4f4f;
+
+	/* --font-family: "Proxima Nova", sans-serif; */
+	--font-family: "Avenir next", sans-serif;
+	--font-weight-normal: normal;
+	--font-weight-bold: bold;
+
+	--header-z-index: 10000;
+	--modal-z-index: calc(var(--header-z-index) + 1);
+
+	--transition-easing: cubic-bezier(0.64, 0.04, 0.35, 1);
+	--transition-duration-short: 200ms;
+	--transition-duration-medium: 300ms;
+	--transition-duration-long: 500ms;
+}

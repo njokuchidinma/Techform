@@ -1,0 +1,14 @@
+.show-medium-up {
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	.show-medium-up {
+		display: block;
+	}
+}
+
+.pad-vertical {
+	padding-top: 72px;
+	padding-bottom: 72px;
+}

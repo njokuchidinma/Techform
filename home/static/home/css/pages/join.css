@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+}
+
+main{
+    padding: 102px 0 80px;
+}
+
+.hero{
+    position: relative;
+    padding: 200px 0 0 7%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.hero__image{
+    width: 100%;
+    object-fit: cover;
+    object-position: 0 -100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.hero__image-overlay{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+}
+
+.hero__text{
+    position: relative;
+}
+
+.hero__header{
+    font-family: "Proxima Nova",sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.hero__subtext{
+    font-family: "Proxima Nova",sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: white;
+    max-width: 432px;
+    line-height: 1.5;
+}
+
+.volunteer-subtext,.partner-subtext{
+    display: none;
+}
+
+.hero__text.volunteer-is-active .volunteer-subtext{
+    display: block;
+}
+
+.hero__text.partner-is-active .partner-subtext{
+    display: block;
+}
+
+.toggle-bar{
+    height: 70px;
+    width: 100%;
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.toggle-bar__button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-family: "Proxima Nova",sans-serif;
+    font-weight: bold;
+    padding: 0 40px;
+    margin: 0 25px;
+    color: #828282;
+    cursor: pointer;
+}
+
+.toggle-bar__button--active{
+    color: #9E13C0;
+    border-color: #9E13C0;
+}
+
+.form-container{
+    padding: 0 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 9%;
+}
+
+.volunteer-description,.partner-description{
+    display: none;
+}
+
+.form-description.volunteer-is-active .volunteer-description{
+    display: block;
+}
+
+.form-description.partner-is-active .partner-description{
+    display: block;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+
+.form .volunteer{
+    display: none;
+}
+
+.form.volunteer-is-active .volunteer{
+    display: block;
+}
+
+.submit-form{
+    width: 194px;
+    height: 50px;
+    background-color: #9E13C0;
+    border-radius: 0 20px 0 20px;
+    display: flex;
+    margin-left: auto;
+    font-family: "Proxima Nova",sans-serif;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: 300ms;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+}
+
+.submit-form.loading > span{
+    display: none;
+}
+
+.submit-form.loading:before{
+    content: '';
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-top-color: white;
+    animation: rotate 0.5s linear infinite;
+}
+
+.submit-form:hover,.submit-form:focus{
+    background-color: var(--darkened-purple);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.success-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-message__icon {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pale-pink);
+    margin: 0 0 30px;
+    border-radius: 50%;
+}
+
+.success-message__title {
+    color: var(--purple);
+    font-weight: var(--font-weight-normal);
+    margin: 0 0 15px;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.success-message__description {
+    color: var(--grey);
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    width: 300px;
+    max-width: 100%;
+    margin: 0 0 34px;
+}
+
+@media (max-width: 1000px) {
+    .hero__image{
+        object-position: 0 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .form-container{
+        grid-template-columns: 1fr;
+        grid-row-gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .toggle-bar__button{
+        padding: 0 15px;
+        margin: 0 15px;
+    }
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

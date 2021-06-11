@@ -1,0 +1,11 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+    align-items: center;
+    height: 70px;
+    background-color: #480059;
+    color: white;
+    font-family: "Proxima Nova",sans-serif;
+    font-size: 14px;
+}

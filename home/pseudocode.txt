@@ -1,0 +1,29 @@
+***
+ {%for forms in form %}
+    {{forms}}
+    {%endfor%}
+    ***
+
+celine's form
+
+class TechForm(forms.Form):
+    username = forms.CharField(max_Length=100)
+    email = forms.CharField(max_length=100, widget=forms.EmailField)
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput)
+    location = forms.CharField(max_length=200)
+    profession = forms.CharField(max_length=300)
+    address = forms.CharField(max_length=300)
+
+
+    class TechForm(forms.Form):
+    username = forms.CharField(max_Length=100)
+    email = forms.CharField(max_length=100, widget=forms.EmailField)
+    password = forms.CharField(max_length=100, widget=forms.PasswordInput)
+    location = forms.CharField(max_length=200)
+    profession = forms.CharField(max_length=300)
+    address = forms.CharField(max_length=300)
+
+Models.py
+
+ class Meta:
+        db_table = 'user_data'
